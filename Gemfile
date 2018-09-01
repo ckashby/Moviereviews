@@ -26,6 +26,8 @@ gem 'carrierwave', '~> 1.2', '>= 1.2.3'
 
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'prawn', '~> 2.2', '>= 2.2.2'
+# Use ActiveStorage variant
+gem 'mini_magick', '~> 4.8'
 
 gem 'acts_as_votable', '~> 0.11.1'
 
@@ -46,9 +48,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
-# Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

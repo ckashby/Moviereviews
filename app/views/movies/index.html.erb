@@ -1,2 +1,26 @@
-<h1>Movies#index</h1>
-<p>Find me in app/views/movies/index.html.erb</p>
+<% if !user_signed_in? %>
+  <div class="jumbotron">
+    <h1>Your Favorite Movies Reviewed</h1>
+    <p>Hashtag hoodie mumblecore selfies. Authentic keffiyeh leggings Kickstarter, narwhal jean shorts XOXO Vice Austin cardigan.</p>
+    <p><%= link_to "Sign Up To Write A Review", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+  </div>
+<% end %>
+
+<div class="row">
+  <% if @movies.any? %>
+    <% @movies.each do |movie| %>
+      <div class="col-sm-6 col-md-3">
+        <div class="card thumbnail" >
+          <%= image_tag movie.image.url, alt: "Movie poster", class: 'card-img-top' %>
+          <div class="card-body">
+            <h5 class="card-title"><%= movie.title %></h5>
+            <p class="card-text"><%= movie.description.truncate(140) %></p>
+            <%= link_to "READ MOVIE REVIEWS", movie, class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+      There are no movies in the database.
+  <% end %>
+</div>
