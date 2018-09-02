@@ -16,7 +16,7 @@ class MoviesController < ApplicationController
         redirect_to root_path, notice: 'Movie successfully created.'
       else
         render :new
-      end 
+      end
   end
 
   def edit
@@ -33,7 +33,7 @@ class MoviesController < ApplicationController
 
     private
     # Use callbacks to share common setup or constraints between actions.
-    def set_movie
+    def find_movie
       @movie = Movie.find(params[:id])
     end
 

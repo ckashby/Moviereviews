@@ -1,2 +1,22 @@
-<h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+        <%= image_tag @movie.image.url, alt: "Movie Poster Image", class: 'card-img-top' %>
+      <div class="card-title" >
+        <h2><%= @movie.title %></h2>
+      </div>
+      <div class="card-body" >
+        <p><%= @movie.description %></p>
+      </div>
+      <div class="card-footer" >
+        <div class="btn-group">
+          <%= link_to "Back", root_path, class: 'btn btn-primary' %>
+          <%= link_to "Edit", edit_movie_path(@movie), class: 'btn btn-success' %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    Reviews
+  </div>
+</div>
