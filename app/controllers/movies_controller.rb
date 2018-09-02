@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @movies = Movie.all
+    @movies = Movie.all.order("created_at DESC")
   end
 
   def new
@@ -26,9 +26,16 @@ class MoviesController < ApplicationController
   end
 
   def update
+    if @movie.update(movie_params)
+      redirect_to movie_path(@movie), notice: 'Movie successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @movie.destroy
+    redirect_to root_path, notice: 'Movie successfully deleted.'
   end
 
     private
